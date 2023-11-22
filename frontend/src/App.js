@@ -4,10 +4,32 @@ import {MainLayout} from './styles/Layouts'
 import Orb from "./Components/Orb/Orb"
 import Navigation from "./Components/Navigation/Navigation";
 import React, { useMemo, useState } from "react"
+import Income from "./Components/Incomes/incomes";
+import Dashboard from "./Components/Dashboard/dashboard";
+import Expenses from "./Components/Expenses/expenses";
+import { useGlobalContext } from "./context/globalContext";
 
 
 function App() {
   const [active, setActive] = React.useState(1)
+
+  const global = useGlobalContext()
+  console.log(global);
+
+  const displayData = () => {
+    switch(active){
+      case 1:
+        return <Dashboard />
+      case 2:
+        return <Dashboard />
+      case 3:
+        return <Income />
+      case 3:
+        return <Expenses />
+      default: 
+        return <Dashboard />
+    }
+  }
   const orbMemo = useMemo(() => {
     return <Orb />
   },[])
@@ -16,6 +38,9 @@ function App() {
       {orbMemo}
       <MainLayout>
         <Navigation active={active} setActive={setActive} />
+        <main>
+            {displayData()}
+        </main>
       </MainLayout>
     </AppStyled>
   );
@@ -24,7 +49,19 @@ function App() {
 const AppStyled = styled.div`
   height: 100vh;
   background-image: url(${props => props.bg});
-  positionL relative;
+  position: relative;
+  main{
+    flex: 1;
+    background: rgba(252, 246, 249, 0.78);
+    border: 3px solid #FFFFFF; 
+    backdrop-filter: blur(4.5px); 
+    border-radius: 32px; 
+    overflow: auto; 
+    overflow-x: hidden; 
+    &:: -webkit-scrollbar{ 
+      width: 0;
+    }
+  }
 `;
 
 
