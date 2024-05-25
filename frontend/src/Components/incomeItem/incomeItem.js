@@ -155,7 +155,7 @@ const IncomeItemStyled = styled.div`
 
         .inner-content{
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
             align-items: center;
             .text{
                 display: flex;

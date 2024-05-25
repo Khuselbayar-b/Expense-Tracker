@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
+import { clothing } from "../Components/utils/icons";
 
 const BASE_URL = "http://localhost:80/api/v1/";
 
@@ -16,6 +17,7 @@ export const GlobalProvider = ({ children }) => {
       .catch((err) => {
         setError(err.response.data.message);
       });
+    getIncome();
   };
 
   const getIncome = async () => {
@@ -25,15 +27,25 @@ export const GlobalProvider = ({ children }) => {
 
   const deleteIncome = async (id) => {
     const res = await axios.delete(`${BASE_URL}delete-income/${id}`);
+    getIncome();
   };
 
+  const totalIncome = () => {
+    let totalIncome = 0;
+    incomes.forEach((incomes) => {
+      totalIncome += incomes.amount
+    })
+    return totalIncome;
+  };
+  
   return (
     <GlobalContext.Provider
       value={{
         addIncome,
         getIncome,
         incomes,
-        deleteIncome
+        deleteIncome,
+        totalIncome
       }}
     >
       {children}

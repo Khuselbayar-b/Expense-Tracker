@@ -27,7 +27,7 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     addIncome(inputState);
-    getIncome();
+   // getIncome();
   };
 
   return (
