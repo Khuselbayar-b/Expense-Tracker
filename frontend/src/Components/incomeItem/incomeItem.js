@@ -4,9 +4,19 @@ import styled from "styled-components";
 import Button from "../Button/button";
 import {
   calender,
+  card,
+  circle,
+  clothing,
   comment,
   dollar,
+  food,
+  freelance,
+  medical,
+  money,
+  piggy,
+  stocks,
   trash,
+  tv,
 } from "/Users/khuselbayar/Documents/Expense Tracker/Expense-Tracker/frontend/src/Components/utils/icons.js";
 
 const boxShadow = "0px 1px 15px rgba(0,0,0,0.06)";
@@ -22,9 +32,49 @@ function IncomeItem({
   indicatorColor,
   type,
 }) {
+
+  const categoryIcon = () => {
+    switch(category) {
+      case "salary":
+        return money;
+      case "parents":
+        return freelance;
+      case "investiments":
+        return stocks;
+      case "stocks":
+        return stocks;
+      case "bank":
+        return card;
+      case "other":
+        return piggy;
+      default:
+        return ""
+    }
+  }
+  const expenseIcon = () => {
+     switch(category) {
+      case "food":
+        return food;
+      case "groceries":
+        return food;
+      case "health":
+        return medical;
+      case "subscription":
+        return tv;
+      case "shopping":
+        return clothing;
+      case "other":
+        return circle;
+      default:
+        return ""
+    }
+  }
+
   return (
     <IncomeItemStyled indicator={indicatorColor}>
-      <div className="icon"></div>
+      <div className="icon">
+        {type === 'expense' ? expenseIcon(): categoryIcon()}
+      </div>
       <div className="content">
         <h5>{title}</h5>
         <div className="inner-content">
@@ -45,6 +95,7 @@ function IncomeItem({
               color={"#fff"}
               icolor={"#fff"}
               hcolor={"var(--color-green)"}
+              onClick={() => deleteItem(id)}
             />
           </div>
         </div>
@@ -76,6 +127,7 @@ const IncomeItemStyled = styled.div`
         border: 2px solid #FFFFFF;
         i{
             font-size: 2.6rem;
+            background: #F5F5F5;
         }
     }
 

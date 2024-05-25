@@ -10,7 +10,7 @@ import { plus } from "/Users/khuselbayar/Documents/Expense Tracker/Expense-Track
 const boxShadow = "0px 1px 15px rgba(0,0,0,0.06)";
 
 function Form() {
-  const { addIncome } = useGlobalContext();
+  const { addIncome, getIncome} = useGlobalContext();
   const [inputState, setInputState] = useState({
     title: "",
     date: "",
@@ -27,6 +27,7 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     addIncome(inputState);
+    getIncome();
   };
 
   return (
@@ -78,7 +79,6 @@ function Form() {
           <option value="investiments">Investiments</option>
           <option value="stocks"> Stocks</option>
           <option value="bank"> Bank Transfer</option>
-          <option value="youtube"> Youtube</option>
           <option value="other"> Other</option>
         </select>
       </div>

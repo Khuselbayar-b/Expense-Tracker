@@ -30,4 +30,6 @@ const ButtonStyled = styled.button`
   transition: all 0.4s ease-in-out;
 `;
 
+
+
 export default Button;
