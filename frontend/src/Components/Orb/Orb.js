@@ -20,10 +20,10 @@ function Orb() {
             transform: translate(0, 0);
         }
     `
-
+// background: linear-gradient(180deg, #1D2570 0%, #7991BD 100%);
     const OrbStyled = styled.div`
-        width: 70vh;
-        height: 70vh;
+        width: 100vh;
+        height: 100vh;
         position: absolute;
         border-radius: 50%;
         margin-left: -37vh;

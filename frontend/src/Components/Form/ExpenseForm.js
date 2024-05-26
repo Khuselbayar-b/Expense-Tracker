@@ -9,8 +9,8 @@ import { plus } from "/Users/khuselbayar/Documents/Expense Tracker/Expense-Track
 
 const boxShadow = "0px 1px 15px rgba(0,0,0,0.06)";
 
-function Form() {
-  const { addIncome, getIncome} = useGlobalContext();
+function ExpenseForm() {
+  const { addExpense } = useGlobalContext();
   const [inputState, setInputState] = useState({
     title: "",
     amount: "",
@@ -27,7 +27,7 @@ function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addIncome(inputState);
+    addExpense(inputState);
     setInputState({
       title: "",
       amount: "",
@@ -44,7 +44,7 @@ function Form() {
           type="text"
           value={title}
           name={title}
-          placeholder="Income Title"
+          placeholder="Expense Title"
           onChange={handleInput("title")}
         />
       </div>
@@ -54,7 +54,7 @@ function Form() {
           value={amount}
           name={"amount"}
           id={"amount"}
-          placeholder="Income Amount"
+          placeholder="Expense Amount"
           onChange={handleInput("amount")}
         />
       </div>
@@ -81,10 +81,11 @@ function Form() {
             {" "}
             Select Option{" "}
           </option>
-          <option value="salary">Salary</option>
-          <option value="parents"> Parents</option>
-          <option value="investiments">Investiments</option>
-          <option value="stocks"> Stocks</option>
+          <option value="groceries">Groceries</option>
+          <option value="food">Food</option>
+          <option value="clothes">Clothes</option>
+          <option value="health">Health</option>
+          <option value="subscription">Subscription</option>
           <option value="bank"> Bank Transfer</option>
           <option value="other"> Other</option>
         </select>
@@ -102,7 +103,7 @@ function Form() {
       </div>
       <div className="submit-btn">
         <Button
-          name={"Add Income"}
+          name={"Add Expense"}
           icon={plus}
           bPad={".8rem 1.6rem"}
           bRad={"30px"}
@@ -162,4 +163,4 @@ const FormStyled = styled.form`
   }
 `;
 
-export default Form;
+export default ExpenseForm;

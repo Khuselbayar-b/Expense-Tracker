@@ -35,12 +35,12 @@ function Navigation({active, setActive}) {
         </NavSyled>
     )
 }
-
+//background: rgba(252, 246, 249, 0.78)
 const NavSyled = styled.nav`
     padding: 2rem 1.5rem;
     width: 374px; 
     height: 100%; 
-    background: rgba(252, 246, 249, 0.78);
+    background: #F4F3F2;
     border: 3px solid #FFFFFF; 
     backdrop-filter: blur(4.5px); 
     border-radius: 32px; 
@@ -94,7 +94,7 @@ const NavSyled = styled.nav`
     .active{
         color: rgba(34, 34, 96, 1) !important; 
         i{
-            color: rgba(34, 34, 96, .6) !important; 
+            color: rgba(34, 34, 96, 1) !important; 
         }
         &::before{
             content: "";

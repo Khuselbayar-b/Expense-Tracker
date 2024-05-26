@@ -61,8 +61,10 @@ function IncomeItem({
         return medical;
       case "subscription":
         return tv;
-      case "shopping":
+      case "clothes":
         return clothing;
+      case "bank":
+        return card;
       case "other":
         return circle;
       default:
@@ -155,7 +157,7 @@ const IncomeItemStyled = styled.div`
 
         .inner-content{
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-between;
             align-items: center;
             .text{
                 display: flex;

@@ -4,6 +4,7 @@ import { useGlobalContext } from "../../context/globalContext";
 import { InnerLayout } from "../../styles/Layouts";
 import Form from "../Form/Form";
 import IncomeItem from "../incomeItem/incomeItem";
+import { dateFormat } from "../utils/dateFormat";
 
 function Income() {
   const { addIncome, incomes, getIncome, deleteIncome, totalIncome} = useGlobalContext();
@@ -23,7 +24,7 @@ function Income() {
           </div>
           <div className="incomes">
             {incomes.map((income) => {
-              const { _id, title, amount, date, category, description } =
+              const { _id, title, amount, date, category, description, type } =
                 income;
               return (
                 <IncomeItem
@@ -31,8 +32,9 @@ function Income() {
                   id={_id}
                   title={title}
                   description={description}
+                  type={type}
                   amount={amount}
-                  date={date}
+                  date={dateFormat(date)}
                   category={category}
                   indicatorColor="var(--color-green)"
                   deleteItem={deleteIncome}
@@ -45,7 +47,7 @@ function Income() {
     </IncomeStyled>
   );
 }
-
+//background: #FCF6F9;
 const IncomeStyled = styled.div`
   display: flex;
   overflow: auto;
