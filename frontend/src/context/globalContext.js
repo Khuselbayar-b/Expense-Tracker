@@ -64,6 +64,18 @@ export const GlobalProvider = ({ children }) => {
     })
     return totalExpense;
   };
+
+  const totalBalance = () => {
+    return totalIncome() - totalExpenses()
+  }
+
+  const transactionHist = () => {
+    const hist = [...incomes, ...expenses]
+    hist.sort((a,b) => {
+      return new Date(b.createdAt) - new Date(a.createdAt)
+    })
+    return hist.slice(0,5)
+  }
   
 
   return (
@@ -79,6 +91,9 @@ export const GlobalProvider = ({ children }) => {
         getExpenses,
         deleteExpenses,
         totalExpenses,
+        totalBalance,
+        transactionHist,
+        error
       }}
     >
       {children}

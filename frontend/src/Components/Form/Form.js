@@ -10,7 +10,7 @@ import { plus } from "/Users/khuselbayar/Documents/Expense Tracker/Expense-Track
 const boxShadow = "0px 1px 15px rgba(0,0,0,0.06)";
 
 function Form() {
-  const { addIncome, getIncome} = useGlobalContext();
+  const { addIncome, getIncome, error, setError} = useGlobalContext();
   const [inputState, setInputState] = useState({
     title: "",
     amount: "",
@@ -23,6 +23,7 @@ function Form() {
 
   const handleInput = (name) => (e) => {
     setInputState({ ...inputState, [name]: e.target.value });
+    setError('');
   };
 
   const handleSubmit = (e) => {
@@ -39,6 +40,7 @@ function Form() {
 
   return (
     <FormStyled onSubmit={handleSubmit}>
+      {error && <p className="error">{error}</p>}
       <div className="input-control">
         <input
           type="text"
