@@ -2,14 +2,16 @@ import React from "react";
 import {styled} from 'styled-components';
 import {useGlobalContext} from "/Users/khuselbayar/Documents/Expense Tracker/Expense-Tracker/frontend/src/context/globalContext.js";
 
-function History() {
+function History({ limit }) {
     const { transactionHist} = useGlobalContext()
 
     const [...history] = transactionHist()
+
+    const displayedHistory = limit ? history.slice(0, limit) : history;
     return (
         <HistoryStyled>
-            <h2>Recent</h2>
-            {history.map((item)=> {
+        
+            {displayedHistory.map((item)=> {
                 const {_id, title, amount, type} = item
                 return (
         

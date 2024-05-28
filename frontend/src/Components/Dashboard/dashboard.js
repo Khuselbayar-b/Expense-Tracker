@@ -42,7 +42,8 @@ function Dashboard() {
                         </div>
                     </div>
                     <div className='history'>
-                        <History />
+                        <h2>Recent</h2>
+                        <History limit={5}/>
                         <h2 className='salary-title'>Min <span>Income </span>Max</h2>
                         <div className='salary-item'>
                             <p>

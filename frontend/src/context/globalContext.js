@@ -74,7 +74,7 @@ export const GlobalProvider = ({ children }) => {
     hist.sort((a,b) => {
       return new Date(b.createdAt) - new Date(a.createdAt)
     })
-    return hist.slice(0,5)
+    return hist
   }
   
 

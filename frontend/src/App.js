@@ -8,6 +8,7 @@ import Income from "./Components/Incomes/incomes";
 import Dashboard from "./Components/Dashboard/dashboard";
 import Expenses from "./Components/Expenses/expenses";
 import { useGlobalContext } from "./context/globalContext";
+import Transactions from "./Components/Transactions/Transactions";
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       case 1:
         return <Dashboard />
       case 2:
-        return <Dashboard />
+        return <Transactions />
       case 3:
         return <Income />
       case 4:
