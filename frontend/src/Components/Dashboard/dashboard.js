@@ -23,19 +23,19 @@ function Dashboard() {
                         <div className='amount'>
                             <div className='income'>
                                 <h2>Total Income</h2>
-                                <p>
+                                <p style={{ color: '#42AD00' }}>
                                     {dollar} {totalIncome()}
                                 </p>
                             </div>
                             <div className='expense'>
                                 <h2>Total Expense</h2>
-                                <p>
+                                <p style={{ color: 'red' }}>
                                     {dollar} {totalExpenses()}
                                 </p>
                             </div>
                             <div className='balance'>
                                 <h2>Total Balance</h2>
-                                <p>
+                                <p style={{ color: totalBalance() < 0 ? 'red' : 'var(--color-green)' }}>
                                     {dollar} {totalBalance()}
                                 </p>
                             </div>
@@ -104,7 +104,6 @@ const DashboardStyled = styled.div`
                     justify-content: center;
                     align-items: center;
                     p{
-                        color: var(--color-green);
                         opacity: 0.6;
                         font-size: 4.5rem;
                     }
